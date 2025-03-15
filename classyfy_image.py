@@ -26,6 +26,28 @@ def classify_images(image_paths):
 
     return image_groups
 
+def group_into_folders(image_groups):
+    """
+    image_groups: dictionary of image groups
+    image_groups = {
+        'k_1' : ['img1.jpg', 'img2.jpg'],
+        'k_2' : ['img3.jpg', 'img4.jpg'],
+        'k_3' : ['img5.jpg', 'img6.jpg'],
+    }
+    """
+    for key in image_groups:
+        folder_name = f"Group_{key}"
+        print(f"Creating folder: {folder_name}")
+
+        for img_path in image_groups[key]:
+            print(f"\tCopying {img_path} to {folder_name}")
+
+        # Create the folder
+        # Copy the images to the folder
+        # Create a text file with the image paths
+        # Create a text file with the image hashes
+
+
 # Example usage
 image_list = [
     "./img/Einstein.jpg", 
@@ -35,5 +57,7 @@ image_list = [
     './img/cap2.png', 
     './img/capture.png'
 ]
-result = classify_images(image_list)
-print(result)
+my_dict = classify_images(image_list)
+print(my_dict)
+
+group_into_folders(my_dict)
