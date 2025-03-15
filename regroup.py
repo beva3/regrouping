@@ -21,20 +21,25 @@ def regroup_characters(string):
         "digits"    : [],
         "special"   : []
     }
+    voyels_set = set("aeiouyAEIOUY")
+    consonants_set = set("bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ")
+    digits_set = set("0123456789")
+    special_set = set("!@#$%^&*()_+-=[]{}|;':,.<>?/")
     for c in string:
-        if c in "aeiouy":
+        if c in voyels_set:
             if c not in groups["voyels"]:
                 groups["voyels"].append(c)
-        elif c in "bcdfghjklmnpqrstvwxz":
+        elif c in consonants_set:
             if c not in groups["consonants"]:
                 groups["consonants"].append(c)
-        elif c in "0123456789":
+        elif c in digits_set:
             if c not in groups["digits"]:
                 groups["digits"].append(c)
         else:
             if c not in groups["special"]:
                 groups["special"].append(c)
     return groups 
+
 
 # Test 1
 # g = frecancy_characters("helloworld")
