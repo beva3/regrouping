@@ -1,5 +1,7 @@
 from PIL import Image
 import imagehash
+import os # For file operations
+import shutil # For file operations
 
 def classify_images(image_paths):
     image_groups = {}
@@ -38,9 +40,14 @@ def group_into_folders(image_groups):
     for key in image_groups:
         folder_name = f"Group_{key}"
         print(f"Creating folder: {folder_name}")
+        os.makedirs(folder_name, exist_ok=True)
 
         for img_path in image_groups[key]:
             print(f"\tCopying {img_path} to {folder_name}")
+            if os.path.exists(img_path):
+                shutil.copy(img_path, folder_name)
+            else:
+                print(f"Image not found: {img_path}")
 
         # Create the folder
         # Copy the images to the folder
