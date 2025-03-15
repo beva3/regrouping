@@ -62,7 +62,10 @@ image_list = [
     "./img/Einstein3.jpg",
     './img/cap1.png', 
     './img/cap2.png', 
-    './img/capture.png'
+    './img/capture.png',
+    './img/itoKoa.png',
+    './img/q.png',
+    './img/w.png'
 ]
 my_dict = classify_images(image_list)
 print(my_dict)
