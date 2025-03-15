@@ -40,6 +40,18 @@ def regroup_characters(string):
                 groups["special"].append(c)
     return groups 
 
+# classification 
+def classification(string):
+    my_classifications = {}
+
+    for char in string:
+        key = f'k_{char}'
+        if key in my_classifications:
+            my_classifications[f"k_{char}"].append(char)
+        else:
+            my_classifications[key] = [char]
+
+    return my_classifications
 
 # Test 1
 # g = frecancy_characters("helloworld")
@@ -47,5 +59,10 @@ def regroup_characters(string):
 # print(len(g))
 
 # Test 2
-g = regroup_characters("helloworld12354hdgd!@#$")
+# g = regroup_characters("helloworld12354hdgd!@#$")
+# print(g)
+
+# Test 3
+
+g = classification("masaka")
 print(g)
